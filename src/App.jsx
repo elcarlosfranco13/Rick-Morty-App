@@ -6,6 +6,8 @@ import FilterList from './components/FilterList'
 import LocationInfo from './components/LocationInfo'
 import ResidentCard from './components/ResidentCard'
 import getRandomNumber from './getRandomNumber'
+import videoplayback from "./assets/videoplayback.webm"
+import logorick from "./assets/logorick.png"
 
 function App() {
   // Acceder a la API
@@ -57,20 +59,25 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Rick & Morty App</h1>
-      <form onSubmit={handleSubmit}>
-      <input
+      <header className='title__container'>
+        <video className='video' src={videoplayback} autoPlay muted loop></video>
+        <img className='title__image' src={logorick} alt="" />
+        <form className='title__form' onSubmit={handleSubmit}>
+      <input className='input_box'
         id="idLocation"
         placeholder='Enter a # from 1 to 126'
         type="text"
         onChange={handleChange} 
         />
-      <button>Search</button>
+      <button className='button__search'>Search</button>
       < FilterList 
         suggestedList={suggestedList}
         setSearchInput={setSearchInput}
         />
       </form>
+      </header>
+      
+      
       {
         hasError ?
           <ErrorScreen />

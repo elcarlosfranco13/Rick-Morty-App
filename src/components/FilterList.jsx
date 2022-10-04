@@ -1,4 +1,5 @@
 import React from 'react'
+import filterList from "./styles/filterList.css"
 
 const FilterList = ({suggestedList,setSearchInput}) => {
 
@@ -7,7 +8,7 @@ const FilterList = ({suggestedList,setSearchInput}) => {
 
 
   return (
-    <ul>
+    <ul className='list__suggestions'>
       {
         suggestedList?.map(location =>(
           <li onClick={() => handleClick(location.id)} key={location.id}>{location.name}</li>
